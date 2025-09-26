@@ -1,0 +1,42 @@
+.hover-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1) !important;
+}
+
+.navbar-nav .nav-link {
+  border: none !important;
+  background: none !important;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #4f46e5 !important;
+}
+
+section {
+  scroll-margin-top: 80px;
+}
+
+.badge {
+  font-weight: 500;
+}
+
+.btn {
+  border-radius: 8px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+}
+
+.card {
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
