@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Github,
   Linkedin,
@@ -15,6 +15,18 @@ import "./Portfolio.css";
 const Portfolio = () => {
   const [activeSection, setActiveSection] = useState("home");
 
+  // Prevenir scroll horizontal
+  useEffect(() => {
+    document.body.style.overflowX = "hidden";
+    document.body.style.maxWidth = "100%";
+    document.body.style.margin = "0";
+    document.body.style.padding = "0";
+
+    return () => {
+      document.body.style.overflowX = "auto";
+    };
+  }, []);
+
   // Datos del portafolio
   const projects = [
     {
@@ -30,13 +42,12 @@ const Portfolio = () => {
     },
     {
       id: 2,
-      title: "Task Manager App",
+      title: "Administrador remoto multiplataforma",
       description:
-        "Aplicación de gestión de tareas con funcionalidades CRUD y almacenamiento local.",
-      image:
-        "https://via.placeholder.com/400x250/10b981/ffffff?text=Task+Manager",
-      technologies: ["React", "CSS3", "LocalStorage"],
-      github: "https://github.com/usuario/task-manager",
+        "Aplicación desarrollada en GoLang que permite a un computador que ejecuta un sistema operativo Windows conectarse mediante sockets y ejecutar comandos de consola en otro equipo con sistema Linux.",
+      image: "/src/assets/images/remote-shell.png",
+      technologies: ["Go", "Shell", "Sockets"],
+      github: "https://github.com/CamiloLVZ/RemoteShellClient",
       demo: null,
     },
     {
@@ -55,18 +66,11 @@ const Portfolio = () => {
   const skills = [
     {
       category: "Frontend",
-      items: [
-        "HTML5",
-        "CSS3",
-        "JavaScript",
-        "React",
-        "Bootstrap",
-        "Tailwind CSS",
-      ],
+      items: ["HTML5", "CSS3", "JavaScript", "React", "Bootstrap"],
     },
-    { category: "Backend", items: ["Node.js", "Express", "Python", "PHP"] },
-    { category: "Database", items: ["MySQL", "MongoDB", "PostgreSQL"] },
-    { category: "Tools", items: ["Git", "GitHub", "VS Code", "Figma"] },
+    { category: "Backend", items: ["Spring Boot", "Java", "Python"] },
+    { category: "Database", items: ["MySQL", "PostgreSQL"] },
+    { category: "Tools", items: ["Git", "GitHub", "VSCode", "Postman"] },
   ];
 
   const scrollToSection = (sectionId) => {
@@ -80,7 +84,14 @@ const Portfolio = () => {
   return (
     <div
       className="min-vh-100"
-      style={{ fontFamily: "system-ui, -apple-system, sans-serif" }}
+      style={{
+        fontFamily: "system-ui, -apple-system, sans-serif",
+        overflowX: "hidden",
+        width: "100%",
+        margin: 0,
+        padding: 0,
+        position: "relative",
+      }}
     >
       {/* Navigation */}
       <nav
@@ -94,7 +105,6 @@ const Portfolio = () => {
             style={{ color: "#4f46e5" }}
           >
             <Code size={24} className="me-2" />
-            DevPortfolio
           </a>
 
           <button
@@ -139,15 +149,15 @@ const Portfolio = () => {
             <div className="col-lg-6">
               <div className="text-white">
                 <h1 className="display-4 fw-bold mb-3">
-                  Hola, soy{" "}
-                  <span style={{ color: "#fbbf24" }}>Alex Desarrollador</span>
+                  <span style={{ color: "#fbbf24" }}>J. Camilo Londoño</span>
                 </h1>
                 <h2 className="h4 mb-4 text-light">
-                  Desarrollador Frontend Junior
+                  Desarrollador de Software
                 </h2>
                 <p className="lead mb-4">
-                  Apasionado por crear experiencias web modernas y funcionales.
-                  Especializado en React, JavaScript y tecnologías frontend.
+                  Apasionado por el desarrollo de sistemas de información en
+                  backend y frontend, utilizando tecnologías como ReactJS y Java
+                  Spring Boot.
                 </p>
                 <div className="d-flex gap-3 mb-4">
                   <button
@@ -165,21 +175,25 @@ const Portfolio = () => {
                 </div>
                 <div className="d-flex gap-3">
                   <a
-                    href="https://github.com"
+                    href="https://github.com/CamiloLVZ"
                     className="text-white"
                     style={{ fontSize: "1.5rem" }}
+                    target="_blank"
+                    rel="noopener noreferrer"
                   >
                     <Github />
                   </a>
                   <a
-                    href="https://linkedin.com"
+                    href="https://linkedin.com/in/camilo-lvz"
                     className="text-white"
                     style={{ fontSize: "1.5rem" }}
+                    target="_blank"
+                    rel="noopener noreferrer"
                   >
                     <Linkedin />
                   </a>
                   <a
-                    href="mailto:email@ejemplo.com"
+                    href="mailto:jcamilo.lvz@gmail.com"
                     className="text-white"
                     style={{ fontSize: "1.5rem" }}
                   >
@@ -199,7 +213,7 @@ const Portfolio = () => {
                   }}
                 >
                   <img
-                    src="https://via.placeholder.com/300x300/e5e7eb/6b7280?text=Tu+Foto"
+                    src="https://media.licdn.com/dms/image/v2/D4E03AQF8P4jlZRm4Tw/profile-displayphoto-crop_800_800/B4EZk8I86YIIAI-/0/1757650605514?e=1762387200&v=beta&t=Yr-oo1CQk-qhFXR8PZJZwjrd_ou1tBMzki6ibG76akw"
                     alt="Profile"
                     className="rounded-circle img-fluid"
                   />
@@ -224,8 +238,9 @@ const Portfolio = () => {
                 Sobre Mí
               </h2>
               <p className="lead text-muted">
-                Soy un desarrollador frontend junior con pasión por aprender y
-                crear soluciones web innovadoras.
+                Soy estudiante de ingenieria de sistemas y apasionado por la
+                programación y la ingenieria de software desarrollando
+                aplicaciones frontend, backend y bases de datos.
               </p>
             </div>
           </div>
@@ -236,13 +251,14 @@ const Portfolio = () => {
                 <div className="card-body p-4">
                   <h4 className="mb-3">Mi Historia</h4>
                   <p className="text-muted">
-                    Comencé mi journey en el desarrollo web hace 2 años. Me
-                    fascina la posibilidad de transformar ideas en experiencias
-                    digitales tangibles. Cada día aprendo algo nuevo y disfruto
-                    enfrentando nuevos desafíos técnicos.
+                    Comencé mi carrera de ingenieria hace 3 años, desde entonces
+                    he pulido mis habilidades de desarrollo enfocandome en
+                    aplicaciones web. Cada día aprendo algo nuevo y disfruto
+                    enfrentando desafíos técnicos constantemente.
                   </p>
                   <p className="text-muted mb-0">
-                    Actualmente me enfoco en tecnologías frontend modernas y
+                    Actualmente me enfoco en tecnologías de desarrollo backend,
+                    pero con disposición de colaborar en todo cuanto pueda,
                     busco oportunidades para aplicar mis conocimientos en
                     proyectos reales.
                   </p>
@@ -365,7 +381,7 @@ const Portfolio = () => {
               Contacto
             </h2>
             <p className="lead text-light">
-              ¿Tienes un proyecto en mente? ¡Me encantaría saber de ti!
+              ¿Tienes un proyecto en mente? ¡Hablemos!
             </p>
           </div>
 
@@ -378,10 +394,10 @@ const Portfolio = () => {
                   </div>
                   <h5 className="text-white mb-2">Email</h5>
                   <a
-                    href="mailto:tu-email@ejemplo.com"
+                    href="mailto:jcamilo.lvz@gmail.com"
                     className="text-light text-decoration-none"
                   >
-                    tu-email@ejemplo.com
+                    jcamilo.lvz@gmail.com
                   </a>
                 </div>
 
@@ -391,10 +407,12 @@ const Portfolio = () => {
                   </div>
                   <h5 className="text-white mb-2">GitHub</h5>
                   <a
-                    href="https://github.com/tu-usuario"
+                    href="https://github.com/CamiloLVZ"
                     className="text-light text-decoration-none"
+                    target="_blank"
+                    rel="noopener noreferrer"
                   >
-                    github.com/tu-usuario
+                    github.com/CamiloLVZ
                   </a>
                 </div>
 
@@ -404,17 +422,19 @@ const Portfolio = () => {
                   </div>
                   <h5 className="text-white mb-2">LinkedIn</h5>
                   <a
-                    href="https://linkedin.com/in/tu-perfil"
+                    href="https://linkedin.com/in/camilo-lvz"
                     className="text-light text-decoration-none"
+                    target="_blank"
+                    rel="noopener noreferrer"
                   >
-                    linkedin.com/in/tu-perfil
+                    linkedin.com/in/camilo-lvz
                   </a>
                 </div>
               </div>
 
               <div className="text-center mt-5">
                 <a
-                  href="mailto:tu-email@ejemplo.com"
+                  href="mailto:jcamilo.lvz@gmail.com"
                   className="btn btn-primary btn-lg px-5"
                 >
                   <Mail className="me-2" />
@@ -430,13 +450,7 @@ const Portfolio = () => {
       <footer
         className="py-4 text-center"
         style={{ backgroundColor: "#0f1419" }}
-      >
-        <div className="container">
-          <p className="text-muted mb-0">
-            © 2024 Alex Desarrollador. Hecho con ❤️ y React.
-          </p>
-        </div>
-      </footer>
+      ></footer>
     </div>
   );
 };
