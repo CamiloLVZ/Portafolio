@@ -11,7 +11,7 @@ import {
 } from "lucide-react";
 
 import "./Portfolio.css";
-
+import remoteShellImg from "./assets/images/remote-shell.png";
 const Portfolio = () => {
   const [activeSection, setActiveSection] = useState("home");
 
@@ -45,7 +45,7 @@ const Portfolio = () => {
       title: "Administrador remoto multiplataforma",
       description:
         "Aplicación desarrollada en GoLang que permite a un computador que ejecuta un sistema operativo Windows conectarse mediante sockets y ejecutar comandos de consola en otro equipo con sistema Linux.",
-      image: "/src/assets/images/remote-shell.png",
+      image: remoteShellImg,
       technologies: ["Go", "Shell", "Sockets"],
       github: "https://github.com/CamiloLVZ/RemoteShellClient",
       demo: null,
