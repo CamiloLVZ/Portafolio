@@ -1,9 +1,7 @@
-/* Solución crítica: box-sizing global */
 * {
   box-sizing: border-box;
 }
 
-/* Solución principal para eliminar la banda blanca */
 html,
 body {
   overflow-x: hidden;
@@ -21,7 +19,6 @@ body {
   position: relative;
 }
 
-/* Asegurar que ningún contenedor Bootstrap cause overflow */
 .container,
 .container-fluid,
 .container-lg,
@@ -47,7 +44,6 @@ body {
   padding-right: 12px;
 }
 
-/* Controlar secciones */
 section {
   scroll-margin-top: 80px;
   width: 100%;
@@ -56,13 +52,11 @@ section {
   position: relative;
 }
 
-/* Prevenir overflow en imágenes */
 img {
   max-width: 100%;
   height: auto;
 }
 
-/* Prevenir overflow en elementos flex */
 .d-flex,
 .gap-2,
 .gap-3,
@@ -70,7 +64,6 @@ img {
   max-width: 100%;
 }
 
-/* Animación suave para las tarjetas */
 .hover-card {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -80,7 +73,6 @@ img {
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15) !important;
 }
 
-/* Estilos de navegación */
 .navbar {
   z-index: 1000;
   width: 100%;
@@ -101,7 +93,6 @@ img {
   transition: color 0.3s ease;
 }
 
-/* Estilos de botones */
 .btn {
   border-radius: 8px;
   font-weight: 500;
@@ -113,18 +104,15 @@ img {
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
-/* Estilos de tarjetas */
 .card {
   border-radius: 12px;
   transition: all 0.3s ease;
 }
 
-/* Estilos de badges */
 .badge {
   font-weight: 500;
 }
 
-/* Responsive adjustments */
 @media (max-width: 768px) {
   .display-4 {
     font-size: 2rem;
@@ -145,7 +133,6 @@ img {
   }
 }
 
-/* Forzar que todo permanezca dentro del viewport */
 body > *,
 #root > * {
   max-width: 100%;
